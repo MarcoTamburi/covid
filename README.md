@@ -13,18 +13,41 @@ Questo progetto analizza i dati epidemiologici relativi alla diffusione del Covi
 
 ##  Tecnologie
 
-- **Python 3.10**
+- **Python 3.13.1**
 - `pandas`, `numpy`, `matplotlib`, `seaborn`, `scikit-learn`
 - `plotly`, `folium`, `ipywidgets`
 - `statsmodels`, `geopandas`
 - Notebook Jupyter `.ipynb`
 
 ##  File del progetto
- ┣  dataset_exam.csv
- ┣  limits_R_10_municipalities.geojson
- ┣  covid_umbria_analysis.ipynb
- ┣  README.md
- ┗  requirements.txt
+- dataset_exam.csv
+- limits_R_10_municipalities.geojson
+- Dockerfile
+- covid_umbria_analysis.ipynb
+- README.md
+- requirements.txt
 
 
 I dati usati sono stati raccolti da fonti pubbliche e aperte. Questo progetto ha scopo esclusivamente didattico ed esplorativo.
+
+## Esecuzione con Docker
+
+Al fine di eseguire la pipeline in ambiente isolato e riproducibile è disponibile un'immagine Docker.
+
+### Build
+
+Basta clonare **questa** repository e poi spostarsi nella cartella: 
+git clone https://github.com/MarcoTamburi/covid.git
+cd covid
+
+Costruire l'immagine: 
+docker build -t covid-analysis .
+
+### Avvio del container
+
+Run del container:
+docker run -p 8888:8888 covid-analysis
+
+L'interfaccia Jupyter Notebook sarà accessibile all'indirizzo indicato nel terminale, solitamente simile a:
+
+http://127.0.0.1:8888/?token.....
